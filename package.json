@@ -1,0 +1,22 @@
+{
+  "name": "shiftlens",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "orca plugin test . --json",
+    "typecheck": "orca plugin types . --json && tsc -p . --noEmit",
+    "check": "orca plugin check . --json",
+    "build": "sh native/build.sh",
+    "package": "sh scripts/package.sh"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  },
+  "license": "MIT",
+  "description": "Double-tap Shift to search files, find text, and preview content in Orca.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2589195970/orca-shiftlens.git"
+  }
+}

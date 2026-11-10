@@ -1,0 +1,6 @@
+node_modules/
+.orca/
+releases/
+bin/
+artifacts/
+.DS_Store

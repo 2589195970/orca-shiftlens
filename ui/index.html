@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>ShiftLens · 瞬搜</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <svg class="glass" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" />
+          <path d="M10.5 10.5 14 14" />
+        </svg>
+        <input id="q" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" />
+        <div class="toggles">
+          <button data-opt="case" tabindex="-1" title="区分大小写 (⌥C)">Aa</button>
+          <button data-opt="word" tabindex="-1" title="全词匹配 (⌥W)">W</button>
+          <button data-opt="regex" tabindex="-1" title="正则表达式 (⌥X)">.*</button>
+        </div>
+        <input
+          id="mask"
+          type="text"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          placeholder="*.java, *.vue"
+          title="文件类型"
+        />
+        <button class="chip" data-opt="ignored" tabindex="-1">包含忽略文件</button>
+      </header>
+      <div id="progress"></div>
+      <main>
+        <section id="list"></section>
+        <section id="preview">
+          <div id="phead"></div>
+          <div id="pbody"></div>
+        </section>
+      </main>
+    </div>
+    <script src="highlight.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

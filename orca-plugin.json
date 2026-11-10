@@ -1,0 +1,68 @@
+{
+  "manifestVersion": 2,
+  "id": "shiftlens",
+  "name": "ShiftLens · 瞬搜",
+  "version": "0.1.0",
+  "description": "双击 Shift，搜文件、查内容、即刻预览。macOS 原生悬浮窗，支持源码高亮、图片和文档预览。",
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "commands": [
+      {
+        "id": "open",
+        "title": "ShiftLens · 瞬搜",
+        "when": "workspace"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "open",
+        "key": "DoubleTap+Shift",
+        "when": "workspace"
+      }
+    ],
+    "statusBarItems": [
+      {
+        "id": "open",
+        "icon": "search",
+        "tooltip": "ShiftLens · 瞬搜",
+        "command": "open"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "kind": "storage:own"
+    },
+    {
+      "kind": "notifications:show"
+    }
+  ],
+  "author": {
+    "name": "2589195970",
+    "url": "https://github.com/2589195970"
+  },
+  "repository": "https://github.com/2589195970/orca-shiftlens",
+  "homepage": "https://github.com/2589195970/orca-shiftlens",
+  "license": "MIT",
+  "cover": {
+    "path": "assets/search.png",
+    "alt": "ShiftLens 原生悬浮窗中的文件与正文混合搜索，以及右侧代码高亮预览"
+  },
+  "screenshots": [
+    {
+      "path": "assets/search.png",
+      "alt": "UserService 文件名结果、正文命中行及代码预览",
+      "caption": "文件与正文混合搜索，按文件合并命中结果"
+    },
+    {
+      "path": "assets/preview.png",
+      "alt": "在搜索结果右侧预览 ShiftLens 示例图片",
+      "caption": "图片与文档在原生预览区域直接查看"
+    }
+  ]
+}
