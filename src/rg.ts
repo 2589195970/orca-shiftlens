@@ -6,6 +6,7 @@ export type SearchOptions = {
   word: boolean
   regex: boolean
   ignored: boolean
+  content?: boolean
   mask: string
 }
 

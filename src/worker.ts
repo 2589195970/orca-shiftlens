@@ -60,7 +60,7 @@ let cleanup: (() => Promise<void>) | null = null
 export default function activate(orca: OrcaWorkerApi): void {
   let active: Workspace | null = null
   let stored: Stored = {
-    opts: { case: false, word: false, regex: false, ignored: false, mask: '' },
+    opts: { case: false, word: false, regex: false, ignored: false, content: true, mask: '' },
     queries: {}
   }
   let saveTimer: ReturnType<typeof setTimeout> | null = null
