@@ -10,7 +10,7 @@ const progress = $('progress')
 const bridge = window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.bridge
 const post = (message) => bridge && bridge.postMessage(JSON.stringify(message))
 
-const opts = { case: false, word: false, regex: false, ignored: false }
+const opts = { case: false, word: false, regex: false, ignored: false, content: true }
 let sid = 0
 let shownSid = -1 // 列表里当前画的是哪一次查询的结果
 let files = new Map() // path -> { item, el }
@@ -293,7 +293,7 @@ function renderPreview(m) {
 const handlers = {
   show(m) {
     q.placeholder = `在 ${m.name} 中搜索`
-    Object.assign(opts, { case: false, word: false, regex: false, ignored: false }, m.opts)
+    Object.assign(opts, { case: false, word: false, regex: false, ignored: false, content: true }, m.opts)
     mask.value = (m.opts && m.opts.mask) || ''
     delete opts.mask
     syncToggles()

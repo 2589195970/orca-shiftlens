@@ -124,6 +124,9 @@ withRg('开关：大小写、文件类型、包含忽略文件、正则错误', 
     assert.ok(names.includes('api/target/UserService.class'))
     const broken = await search(engine, inbox, 4, 'User(', { regex: true })
     assert.equal(broken.at(-1)!.error, '正则表达式无效')
+    const noContent = await search(engine, inbox, 6, 'UserService', { content: false })
+    assert.deepEqual(hitPaths(noContent), [])
+    assert.ok(noContent.find((m) => m.type === 'files')!.items.some((i: Message) => i.path === 'api/src/UserService.java'))
     const pdf = await search(engine, inbox, 5, 'guide')
     assert.deepEqual(
       pdf.find((m) => m.type === 'files')!.items.map((i: Message) => i.path),

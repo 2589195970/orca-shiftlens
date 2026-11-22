@@ -129,7 +129,7 @@ export class Engine {
       nameHits: r.hits
     }))
     this.send({ type: 'files', sid, items })
-    if (m.text.length < MIN_CONTENT_CHARS) {
+    if (m.opts.content === false || m.text.length < MIN_CONTENT_CHARS) {
       this.send({ type: 'done', sid })
       return
     }
